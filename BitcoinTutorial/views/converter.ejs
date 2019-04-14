@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Converter</title>
+    </head>
+    <input type="text" id="btc" value="1" onkeyup="btcTousd()">
+    BTC to USD
+    <input type="text" id="usd" value="<%= btcToUSD %>" onkeyup="usdTobtc()">
+    <script>
+        function btcTousd() {
+            const marketPrice = <%= btcToUSD %>;
+            const btcVal = document.getElementById( "btc" ).value;
+
+            const usdVal = btcVal * marketPrice;
+            document.getElementById( "usd" ).value = usdVal;
+        }
+
+        function usdTobtc() {
+            const marketPrice = <%= btcToUSD %>;
+            const usdVal = document.getElementById( "usd" ).value;
+
+            const btcVal = usdVal / marketPrice;
+            document.getElementById( "btc" ).value = btcVal;
+        }
+    </script>
+</html>
